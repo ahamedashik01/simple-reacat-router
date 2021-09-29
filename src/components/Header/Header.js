@@ -20,6 +20,11 @@ const Header = () => {
                 color: "red"
             }}
                 to="/about">About</NavLink>
+            <NavLink activeStyle={{
+                fontWeight: "bold",
+                color: "red"
+            }}
+                to="/about/culture">Culture</NavLink>
         </nav >
     );
 };
