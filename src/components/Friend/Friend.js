@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Friend = (props) => {
     const { id, name, phone, website, address } = props.friend
+    const history = useHistory();
     const friendStyle = {
         border: '3px solid goldenrod',
         padding: '10px',
@@ -10,6 +11,9 @@ const Friend = (props) => {
         margin: '10px'
     }
     const url = `/friend/${id}`;
+    const handleFriendClick = () => {
+        history.push(`/friend/${id}`)
+    }
     return (
         <div style={friendStyle}>
             <h1>I am : {name} id: {id}</h1>
@@ -17,6 +21,12 @@ const Friend = (props) => {
             <p>visit me : {website}</p>
             <p>my address : {address.city}</p>
             <Link to={url}>Details</Link>
+            <br />
+            <Link to={url}>
+                <button>visit me</button>
+            </Link>
+            <button onClick={handleFriendClick}> Visit me 2</button>
+
         </div>
     );
 };
